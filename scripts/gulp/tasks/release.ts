@@ -61,7 +61,7 @@ task('release.update', (done: (err: any) => void) => {
 // Release.publish: publish to GitHub and npm
 task('release.publish', (done: (err: any) => void) => {
   if (promptAnswers && promptAnswers.confirmRelease === 'yes') {
-    runSequence('release.publishNpmRelease',
+    runSequence(// 'release.publishNpmRelease',
                 'release.publishGithubRelease',
                 done);
   } else {
@@ -87,7 +87,7 @@ task('release.publishGithubRelease', (done: Function) => {
   })
   .pipe(obj(function(file, enc, cb) {
     github.releases.createRelease({
-      owner: 'ionic-team',
+      owner: 'artistgrowth',
       repo: 'ionic-v3',
       target_commitish: 'v3',
       tag_name: 'v' + packageJSON.version,
