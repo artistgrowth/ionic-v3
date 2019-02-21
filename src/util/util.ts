@@ -34,7 +34,7 @@ export function debounce(fn: Function, wait: number, immediate: boolean = false)
    var later: any = function() {
      var last: any = Date.now() - timestamp;
      if (last < wait) {
-       timeout = setTimeout(later, wait - last);
+       timeout = window.setTimeout(later, wait - last);
      } else {
        timeout = null;
        if (!immediate) result = fn.apply(context, args);
@@ -42,7 +42,7 @@ export function debounce(fn: Function, wait: number, immediate: boolean = false)
    };
    var callNow = immediate && !timeout;
    if (!timeout) {
-     timeout = setTimeout(later, wait);
+     timeout = window.setTimeout(later, wait);
    }
    if (callNow) result = fn.apply(context, args);
    return result;

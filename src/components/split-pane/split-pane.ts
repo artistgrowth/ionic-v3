@@ -271,7 +271,7 @@ export class SplitPane extends Ion implements RootNode {
     }
     if (query && query.length > 0) {
       // Listen
-      const callback = (query: MediaQueryList) => this._setVisible(query.matches);
+      const callback = (query: MediaQueryListEvent) => this._setVisible(query.matches);
       const mediaList = this._plt.win().matchMedia(query);
       mediaList.addListener(callback);
       this._setVisible(mediaList.matches);

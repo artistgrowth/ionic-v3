@@ -450,7 +450,7 @@ export class Refresher {
     }
 
     // create fallback timer incase something goes wrong with transitionEnd event
-    timer = setTimeout(close.bind(this), 600);
+    timer = window.setTimeout(close.bind(this), 600);
 
     // create transition end event on the content's scroll element
     this._content.onScrollElementTransitionEnd(close.bind(this));
