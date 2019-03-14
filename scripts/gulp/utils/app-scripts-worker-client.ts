@@ -1,4 +1,4 @@
-import { fork, ChildProcess } from 'child_process';
+import { ChildProcess, fork } from 'child_process';
 import { dirname, join } from 'path';
 
 import { MessageToWorker, WorkerProcess } from './interfaces';
@@ -103,7 +103,7 @@ export function createWorker(msg: MessageToWorker): any {
     const workerModule = join(process.cwd(), 'node_modules', '@ionic', 'app-scripts', 'bin', 'ionic-app-scripts.js');
     const worker = fork(workerModule, scriptArgs, {
       env: {
-        FORCE_COLOR: true,
+        FORCE_COLOR: 'true',
         npm_config_argv: process.env.npm_config_argv
       }
     });
